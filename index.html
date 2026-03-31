@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Bridge - Practical Portfolio</title>
+    <meta name="description" content="A portfolio tracking the transition from academic learning to practical software engineering skills.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="header glass-panel">
+            <h1>Skill Bridge</h1>
+            <p>Bridging the Gap: Academic Theory to Industry Practice</p>
+        </header>
+
+        <!-- Main Dashboard View -->
+        <main id="main-dashboard" class="dashboard">
+            
+            <!-- Sidebar Elements -->
+            <div class="sidebar-wrapper">
+                <section class="overview glass-panel">
+                    <h2>Readiness Score</h2>
+                    <div class="score-circle">
+                        <!-- SVG Circular Progress Bar -->
+                        <svg viewBox="0 0 36 36" class="circular-chart" aria-label="Completion status">
+                            <path class="circle-bg"
+                            d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 31.831
+                            a 15.9155 15.9155 0 0 1 0 -31.831"
+                            />
+                            <path class="circle" id="overall-progress-circle"
+                            stroke-dasharray="75, 100"
+                            d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 31.831
+                            a 15.9155 15.9155 0 0 1 0 -31.831"
+                            />
+                            <text x="18" y="20.35" class="percentage" id="overall-progress-text">75%</text>
+                        </svg>
+                    </div>
+                    <p>Industry Ready</p>
+                    <div class="overview-stats">
+                        <p>Tracked Skills: <strong id="total-skills-count">6</strong></p>
+                        <p>Goal: <strong>Full Stack Engineer</strong></p>
+                    </div>
+                </section>
+
+                <section class="add-skill-panel glass-panel">
+                    <h3>➕ Add New Skill</h3>
+                    <form id="add-skill-form">
+                        <div class="form-group">
+                            <label for="skill-title">Title</label>
+                            <input type="text" id="skill-title" required placeholder="e.g. AWS Lambda">
+                        </div>
+                        <div class="form-group-row">
+                            <div class="form-group">
+                                <label for="skill-icon">Emoji Idea</label>
+                                <input type="text" id="skill-icon" required placeholder="☁️" maxlength="2">
+                            </div>
+                            <div class="form-group">
+                                <label for="skill-progress">Level (%)</label>
+                                <input type="number" id="skill-progress" min="0" max="100" required placeholder="80">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="skill-desc">Brief Description</label>
+                            <textarea id="skill-desc" rows="2" required placeholder="I built microservices..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Track Skill</button>
+                    </form>
+                </section>
+            </div>
+
+            <!-- Dynamic Skills Grid container -->
+            <section class="skills-grid" id="skills-container">
+                <!-- Cards injected via JS -->
+            </section>
+        </main>
+
+        <!-- Drill-down Detailed View (Hidden by default) -->
+        <main id="detail-view" class="detail-view" style="display: none;">
+            <div class="detail-header">
+                <button id="back-btn" class="btn-secondary">⬅ Back to Dashboard</button>
+            </div>
+            
+            <section class="detail-content glass-panel" id="detail-content-box">
+                <!-- Detailed content injected via JS -->
+            </section>
+        </main>
+
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
